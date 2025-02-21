@@ -1,0 +1,2 @@
+- success message when registration is successful
+- add confirm password field and ability to compare password and confirm password field
