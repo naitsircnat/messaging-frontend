@@ -2,6 +2,7 @@ import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useLocation } from "wouter";
+import { useJwt } from "./jwtStore";
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -28,6 +29,10 @@ export default function Login() {
       );
 
       console.log("Log in successful: ", response.data);
+
+      setJwt(response.data.token);
+
+      actions.setSubmitting(false);
 
       setLocation("/");
     } catch (error) {
