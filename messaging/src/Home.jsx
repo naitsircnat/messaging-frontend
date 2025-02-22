@@ -6,7 +6,14 @@ import axios from "axios";
 import UserListingInd from "./UserListingInd";
 
 function Home() {
-  // const users=await axios.get(`${import.meta.env.VITE_API_URL}/user/users`);
+  // async function getUsers() {
+  //   const users = await axios.get(`${import.meta.env.VITE_API_URL}/user/users`);
+  //   return users;
+  // }
+
+  const response = axios.get(`${import.meta.env.VITE_API_URL}/user/users`);
+
+  console.log(response.data);
 
   return (
     <>
