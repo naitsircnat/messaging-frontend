@@ -19,9 +19,11 @@ export default function Login() {
     password: "",
   };
 
+  const { setJwt } = useJwt();
+
   const [, setLocation] = useLocation();
 
-  const handleSubmit = async (values, formikHelpers) => {
+  const handleSubmit = async (values, actions) => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/user/login`,
@@ -38,7 +40,7 @@ export default function Login() {
     } catch (error) {
       console.error("Log in failed", error.response?.data || error.message);
     } finally {
-      formikHelpers.setSubmitting(false);
+      actions.setSubmitting(false);
     }
   };
 
